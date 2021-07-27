@@ -103,7 +103,7 @@ if __name__ == '__main__':
     train_loader = torch.utils.data.DataLoader(
         datasets.MNIST(args.dir, train=True, download=True,
                        transform=transformer),
-        batch_size=args.batch_size, shuffle=False)
+        batch_size=args.batch_size, shuffle=True)
 
     test_loader = torch.utils.data.DataLoader(
         datasets.MNIST(args.dir, train=False, transform=transformer),
