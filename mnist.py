@@ -59,13 +59,13 @@ if __name__ == '__main__':
                         help='output dimension')
 
     # Training parameters
-    parser.add_argument('--lr', type=float, default=0.002,
+    parser.add_argument('--lr', type=float, default=1e-4,
                         help='learning rate (default: 1e-4)')
     parser.add_argument('--wd', type=float, default=5e-4,
                         help='weight decay (default: 5e-4)')
-    parser.add_argument('--batch-size', type=int, default=128,
+    parser.add_argument('--batch-size', type=int, default=256,
                         help='input batch size for training')
-    parser.add_argument('--epoch', type=int, default=50,
+    parser.add_argument('--epoch', type=int, default=100,
                         help='number of epochs to train')
     parser.add_argument('--pre-epoch', type=int, default=50, 
                         help='number of pre-train epochs')
@@ -73,7 +73,7 @@ if __name__ == '__main__':
                         help='whether use pre-training')
 
     # Model parameters
-    parser.add_argument('--lamda', type=float, default=0.005,
+    parser.add_argument('--lamda', type=float, default=1,
                         help='coefficient of the reconstruction loss')
     parser.add_argument('--beta', type=float, default=1,
                         help=('coefficient of the regularization term on '
@@ -103,11 +103,11 @@ if __name__ == '__main__':
     train_loader = torch.utils.data.DataLoader(
         datasets.MNIST(args.dir, train=True, download=True,
                        transform=transformer),
-        batch_size=args.batch_size, shuffle=True)
+        batch_size=args.batch_size, shuffle=False)
 
     test_loader = torch.utils.data.DataLoader(
         datasets.MNIST(args.dir, train=False, transform=transformer),
-        batch_size=args.batch_size, shuffle=False)
+        batch_size=args.batch_size, shuffle=True)
 
     # Main body
     model = DCN(args)
