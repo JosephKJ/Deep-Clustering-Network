@@ -59,7 +59,7 @@ if __name__ == '__main__':
                         help='output dimension')
 
     # Training parameters
-    parser.add_argument('--lr', type=float, default=1e-4,
+    parser.add_argument('--lr', type=float, default=0.002,
                         help='learning rate (default: 1e-4)')
     parser.add_argument('--wd', type=float, default=5e-4,
                         help='weight decay (default: 5e-4)')
@@ -73,7 +73,7 @@ if __name__ == '__main__':
                         help='whether use pre-training')
 
     # Model parameters
-    parser.add_argument('--lamda', type=float, default=1,
+    parser.add_argument('--lamda', type=float, default=0.005,
                         help='coefficient of the reconstruction loss')
     parser.add_argument('--beta', type=float, default=1,
                         help=('coefficient of the regularization term on '
