@@ -107,7 +107,7 @@ if __name__ == '__main__':
 
     test_loader = torch.utils.data.DataLoader(
         datasets.MNIST(args.dir, train=False, transform=transformer),
-        batch_size=args.batch_size, shuffle=True)
+        batch_size=args.batch_size, shuffle=False)
 
     # Main body
     model = DCN(args)
